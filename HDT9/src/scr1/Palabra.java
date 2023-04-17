@@ -1,12 +1,8 @@
 /**
- * 
- */
-package edu.uvg.ht9;
-
-/**
  * @author MAAG
  *
  */
+
 public class Palabra implements Comparable<Palabra> {
 
 	private String spanish;
