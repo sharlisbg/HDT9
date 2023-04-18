@@ -17,6 +17,10 @@ public class ArbolSplay<T extends Comparable<T>> implements IEstructuraArbol<T> 
 		miInternalTree = new SplayTree<T>(comparador);
 	}
 	
+	
+	/** 
+	 * @param value
+	 */
 	@Override
 	public void add(T value) {
 		miInternalTree.add(value);

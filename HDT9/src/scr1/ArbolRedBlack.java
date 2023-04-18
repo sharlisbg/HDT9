@@ -11,6 +11,10 @@ public class ArbolRedBlack<T extends Comparable<T>> implements IEstructuraArbol<
 		myInternalTree = new RedBlackSearchTree<T>();
 	}
 	
+	
+	/** 
+	 * @param value
+	 */
 	@Override
 	public void add(T value) {
 		myInternalTree.add(value);
