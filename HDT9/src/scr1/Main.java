@@ -13,7 +13,7 @@ public class Main {
         LeerArchivo<Palabra> lector = new LeerArchivo<Palabra>(treeType); // Creación de clase lector de libro que crea los arboles
         lector.leerArchivo(fileName); // Se lee el archivo y se crea el arbol binario específicado
               
-        String menu = "Bienvenido a su diccionario Ingles Espanol\nQue desea realizar: \n1. Buscar traduccion de palabras. \n2.Traducir lineas de texto. \n3. Salir ";
+        String menu = "\nBienvenido a su diccionario Ingles Espanol\nQue desea realizar: \n1. Buscar traduccion de palabras. \n2. Traducir lineas de texto. \n3. Salir ";
         System.out.println(menu);
         int opcion = in.nextInt(); 
         in.nextLine();
@@ -36,13 +36,11 @@ public class Main {
                     LeerArchivo.imprimirLineas(filename1);
                     int linea = in.nextInt();
                     in.nextLine();
-                    for (String word: LeerArchivo.leerLineas(filename1).get(linea-1)) {
-                        // Comparamos cada palabra con la llave del árbol binario
+                    for (String word : LeerArchivo.leerLineas(filename1).get(linea - 1)) {
                         Palabra mibusqueda = lector.getArbol().get(new Palabra(word, ""));
                         if (mibusqueda != null) {
                             System.out.print(mibusqueda.getSpanish() + " ");
                         } else {
-                            // De lo contrario, imprimimos la palabra encerrada en asteriscos
                             System.out.print("*" + word + "* ");
                         }
                     }

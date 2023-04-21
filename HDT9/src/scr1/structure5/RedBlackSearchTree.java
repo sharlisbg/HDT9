@@ -148,7 +148,11 @@ public class RedBlackSearchTree<E extends Comparable<E>> extends AbstractStructu
     }
     
     public E get(E value){
-    	return root.contains(value).value;
+        if (root.contains(value) == null){
+            return null;
+        } else {
+            return root.contains(value).value;
+        }
     }
     
     /**

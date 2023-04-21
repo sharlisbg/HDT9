@@ -36,8 +36,7 @@ import java.util.Comparator;
  * @see SplayTree
  * @see BinaryTree
  */
-public class BinarySearchTree<E extends Comparable<E>>
-    extends AbstractStructure<E> implements OrderedStructure<E>
+public class BinarySearchTree<E extends Comparable<E>> extends AbstractStructure<E> implements OrderedStructure<E>
 {
     /**
      * A reference to the root of the tree
