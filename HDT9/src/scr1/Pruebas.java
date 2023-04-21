@@ -1,12 +1,5 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.fail;
-
-import java.util.ArrayList;
-
 import org.junit.Test;
-
-import java.lang.Exception;
 import structure5.*;
 
 /**
@@ -49,9 +42,27 @@ public class Pruebas {
 		miDiccionario.add(new Palabra("house", "casa"));
 		miDiccionario.add(new Palabra("window", "ventana"));
 		
-		assertEquals(null, miDiccionario.get(new Palabra("house", "")));
+		Palabra miBusqueda = miDiccionario.get(new Palabra("house", ""));
 		
+		assertEquals("house", miBusqueda.getEnglish());
+		assertEquals("casa", miBusqueda.getSpanish());
     }
+
+	@Test
+	public void testSplayTree() {
+		SplayTree<Palabra> miDiccionario = new SplayTree<Palabra>(new ComparadorPalabras<Palabra>());
+		
+		miDiccionario.add(new Palabra("dog", "perro"));
+		miDiccionario.add(new Palabra("house", "casa"));
+		miDiccionario.add(new Palabra("window", "ventana"));
+		
+		
+		Palabra mibusqueda = miDiccionario.get(new Palabra("house", ""));
+		
+		assertEquals("house", mibusqueda.getEnglish());
+		assertEquals("casa", mibusqueda.getSpanish());
+		
+	}
 
 
 

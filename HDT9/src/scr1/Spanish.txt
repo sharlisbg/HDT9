@@ -4,3 +4,6 @@ homework,tarea
 woman,mujer
 town,pueblo
 yes,si
+the,el
+cat,gato
+she,ella

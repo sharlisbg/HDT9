@@ -6,6 +6,7 @@ public class Main {
         Scanner in = new Scanner(System.in); 
         String fileName = "Spanish.txt"; // nombre del archivo que se va a leer
 
+        // Se solicita ingresar el tipo de árbol con el cual se quiere trabajar
         System.out.println("Bienvenido a su diccionario Ingles Espanol");
         System.out.println("¿Con que tipo de arbol desea realizar sus consultas?\n(1) Red Black Tree \n(2) Splay Tree \n(3) Binary Search Tree \nIngrese el numero ");
         int treeType = in.nextInt();
@@ -19,10 +20,10 @@ public class Main {
         in.nextLine();
         while(opcion < 3){
             switch (opcion){
-                case 1:{ // Se ingresa la palabra y se traduce a los otros dos idiomas
+                case 1:{ // Se ingresa la palabra y se traduce al español
                     System.out.println("Ingrese la palabra en ingles que desea traducir ");
                     String palabra = in.nextLine();
-                    palabra.toLowerCase();
+                    palabra = palabra.toLowerCase();
                     System.out.println("La palabra "+palabra+ " traducida al espanol es: ");
                     Palabra mibusqueda = lector.getArbol().get(new Palabra(palabra, ""));
                     System.out.println(mibusqueda.getSpanish());
@@ -30,18 +31,18 @@ public class Main {
                 }
 
                 case 2:{
-                    // Se solicita una línea y se traduce cada palabra
+                    // Se solicita una línea y se traduce cada palabra de la línea
                     String filename1 = "Lineas.txt";
                     System.out.println("A continuacion se presenta un listado de las lineas a imprimir, ingrese el numero de la linea que desea traducir");
                     LeerArchivo.imprimirLineas(filename1);
                     int linea = in.nextInt();
                     in.nextLine();
-                    for (String word : LeerArchivo.leerLineas(filename1).get(linea - 1)) {
+                    for (String word : LeerArchivo.leerLineas(filename1).get(linea - 1)) { // Por cada palabra en la línea
                         Palabra nueva = new Palabra(word, "");
-                        if (lector.getArbol().get(nueva) == null) {
+                        if (lector.getArbol().get(nueva) == null) { // Si la palabra en inglés no está en el arbol está no se traduce
                             System.out.print("*" + word + "* ");
                         } else {
-                            Palabra mibusqueda = lector.getArbol().get(nueva);
+                            Palabra mibusqueda = lector.getArbol().get(nueva); // Si se encuentra en el arbol está si se traduce al español
                             System.out.print(mibusqueda.getSpanish() + " ");
                             
                         }
