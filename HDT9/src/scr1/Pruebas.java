@@ -49,7 +49,7 @@ public class Pruebas {
 		miDiccionario.add(new Palabra("house", "casa"));
 		miDiccionario.add(new Palabra("window", "ventana"));
 		
-		assertEquals(null, miDiccionario.get(new Palabra("dog", "")));
+		assertEquals(null, miDiccionario.get(new Palabra("house", "")));
 		
     }
 

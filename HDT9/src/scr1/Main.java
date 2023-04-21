@@ -37,11 +37,13 @@ public class Main {
                     int linea = in.nextInt();
                     in.nextLine();
                     for (String word : LeerArchivo.leerLineas(filename1).get(linea - 1)) {
-                        Palabra mibusqueda = lector.getArbol().get(new Palabra(word, ""));
-                        if (mibusqueda != null) {
-                            System.out.print(mibusqueda.getSpanish() + " ");
-                        } else {
+                        Palabra nueva = new Palabra(word, "");
+                        if (lector.getArbol().get(nueva) == null) {
                             System.out.print("*" + word + "* ");
+                        } else {
+                            Palabra mibusqueda = lector.getArbol().get(nueva);
+                            System.out.print(mibusqueda.getSpanish() + " ");
+                            
                         }
                     }
                     break;
