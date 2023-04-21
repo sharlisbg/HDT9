@@ -7,36 +7,33 @@ import java.io.IOException;
  * Clase de lectura para almacenar diccionario en arboles binarios
  */
 
-public class LeerArchivo<T> {
+ public class LeerArchivo<T extends Comparable<T>> {
 
-    private final int SPANISH_INDEX = 1;
-    private final int ENGLISH_INDEX = 0;
+    private IEstructuraArbol<Palabra> arbol;
 
-    /**
-     * @param nombreArchivo
-     * @param treeType
-     * @return IEstructuraArbol<Palabra>
-     */
-    public IEstructuraArbol<Palabra> leerArchivo(String nombreArchivo, int treeType) {
-        IEstructuraArbol<Palabra> arbol = Factory.createArbol(treeType);
+    public LeerArchivo(int treeType) {
+        arbol = Factory.createArbol(treeType);
+    }
+
+    public void leerArchivo(String nombreArchivo) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(nombreArchivo));
             String linea;
 
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos.length == 3 && datos[0].equalsIgnoreCase("tree") && datos[1].equalsIgnoreCase("arbol")) {
-                    Palabra palabra = new Palabra(datos[ENGLISH_INDEX].trim(), datos[SPANISH_INDEX].trim());
-                    arbol.add(palabra);
-                }
+                String llave = datos[0].trim();
+                String valor = datos[1].trim();
+                Palabra palabra = new Palabra(llave, valor);
+                arbol.add(palabra);
             }
 
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return arbol;
     }
+
     /*
     
      * @param filename
