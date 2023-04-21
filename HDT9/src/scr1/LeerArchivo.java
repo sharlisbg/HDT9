@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: Sharis Barrios 
@@ -8,13 +10,16 @@ import java.io.IOException;
  */
 
  public class LeerArchivo<T extends Comparable<T>> {
-
     private IEstructuraArbol<Palabra> arbol;
 
     public LeerArchivo(int treeType) {
         arbol = Factory.createArbol(treeType);
     }
 
+    
+    /** 
+     * @param nombreArchivo
+     */
     public void leerArchivo(String nombreArchivo) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(nombreArchivo));
@@ -34,12 +39,17 @@ import java.io.IOException;
         }
     }
 
-    /*
-    
+
+    public IEstructuraArbol<Palabra> getArbol() {
+        return this.arbol;
+    }
+
+
+     /** 
      * @param filename
      * @return List<List<String>>
      * @throws IOException
-    
+     */
     // Método para leer y guardar líneas a traducir 
     public static List<List<String>> leerLineas(String filename) throws IOException {
         List<List<String>> lines = new ArrayList<>();
@@ -59,10 +69,10 @@ import java.io.IOException;
         return lines;
     }
 
-    
+
     /** 
      * @param archivo
-    
+     */
     // Método para imprimir las líneas de un archivo 
     public static void imprimirLineas(String archivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
@@ -76,7 +86,7 @@ import java.io.IOException;
           System.err.println("Error al leer el archivo: " + e.getMessage());
         }
       }
-      */
+
     
 }
 
